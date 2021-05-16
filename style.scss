@@ -1,0 +1,220 @@
+*, *::after, *::before{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+
+
+$colors-primary-400: #2D7DFF;
+
+$colors-grad-left: #00A3FF;
+$colors-grad-right: #BD00FF;
+
+$colors-neutral-200:#847D93;
+$colors-neutral-300:#4D4D4D;
+$colors-neutral-350:#2C2931;
+$colors-neutral-400: #221F26;
+
+
+body{
+    width:100vw;
+    padding:1rem;
+    display:grid;
+    place-content:center;
+    font-family:"Poppins",sans-serif;
+    text-transform: uppercase;
+    color:white;
+    background: linear-gradient(45deg, #00A3FF, #BD00FF);
+    background-repeat: no-repeat;
+}
+
+.card{
+    height:872px;
+    width:calc(100vw - 1rem);
+    background-color: $colors-neutral-400;
+    border-radius:10px;
+    background:url('/lightBG.jpg');
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position: 10%;
+    position:relative;
+    overflow:hidden;
+    z-index:1;
+    padding:0 2.626em;
+    display:grid;
+    place-content:center;
+
+    &::before{
+        content:'';
+        position:absolute;
+        top:0; left:0;
+        width:100%;
+        height:100%;
+        background:white;
+        z-index:-1;
+        opacity:0.15;
+    }
+
+    .hamburger{
+        position:absolute;
+        top:1.5em; left:1.5em;
+        margin:1.5em;
+        z-index:5;
+        transition:all 0.5s ease-out;
+        transition-delay: 0.3s;
+
+        &.open{
+            opacity:0;
+            pointer-events:none;
+            transition :all 1s ease-out;
+        }
+
+        &:hover{
+            cursor:pointer;
+        }
+    }
+
+    .icon{
+        text-align:center;
+        color:$colors-primary-400;
+        font-weight:800;
+        font-size:1.5rem;
+        letter-spacing: -3px;
+        margin-top: 1.5em;
+        position:absolute;
+        left:50%; transform:translate(-50%);
+    }
+
+    .side-menu{
+        position:absolute;
+        left:-50%; top:0;
+        height:100%;
+        width:45%;
+        background: $colors-neutral-350;
+        transition:all 0.75s ease-out;
+        
+        &.open{
+            left:0; top:0;
+        }
+
+        .back{
+            position:relative;
+            padding:2.75rem;
+
+            &:hover{
+                cursor:pointer;
+            }
+
+        }
+
+        ul{
+            list-style:none;
+            width:100%;
+            
+            li{
+                width:100%;
+                padding:0.9rem 2.75rem;
+
+                &:hover{
+                    cursor:pointer;
+                    background:$colors-grad-left;
+                }
+            }
+        }
+    }
+
+    .card-content{
+        
+        
+        h1{
+            font-size:3rem;
+            font-weight: 800;
+            line-height:1em;
+            margin-bottom:2.125rem;
+        }
+
+        h2{
+            font-size:2.125rem;
+            font-weight:200;
+            color:$colors-neutral-200;
+            text-transform: capitalize;
+            line-height:1em;
+            margin-bottom:2.5em;
+        }
+
+        button{
+            padding:1.125rem 1rem;
+            font-family:"Poppins", sans-serif;
+            font-weight:700;
+            font-size:1.125rem;
+            color:white;
+            background:none;
+            border:1px $colors-neutral-300 solid;
+            text-transform: uppercase;
+
+            &:hover{
+                background:$colors-grad-left;
+                cursor:pointer;
+            }
+
+            img{
+                margin-right:1rem;
+            }
+        }
+    }
+}
+
+
+@media only screen and (min-width:1200px){
+    body{
+        padding:0;
+    }
+
+    .card{
+        width:calc(100vw - 4.875rem);
+        height: calc(664px);
+        margin:4.875rem;
+        background-size: 130%;
+        background-position-x: -30%;
+        display:unset;
+        padding:0 0 0 19.69rem;
+
+        .card-content{
+            width:40%;
+
+
+            h1{
+                font-size:64px;
+            }
+
+            h2{
+                font-size:48px;
+            }
+        }
+    
+
+        .icon{
+            position:unset;
+            margin-bottom: 2.875rem;
+            padding-left: 3.125rem;
+            font-size:1.5rem;
+        }
+
+        .hamburger{
+            display:none;
+        }
+        
+        .side-menu{
+            left:0;
+            width:213px;
+
+            .back{
+                opacity:0;
+                pointer-events: none;
+            }
+        }
+
+
+    }
+}
